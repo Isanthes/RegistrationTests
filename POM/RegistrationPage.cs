@@ -113,7 +113,7 @@ namespace RegistrationTests.POM
             var dateOfBirthElement = driver.FindElement(By.Id(dateOfBirthInput));
             dateOfBirthElement.Click();
             var calendarElement = driver.FindElement(By.ClassName(calendar));
-            var selectedDate = calendarElement.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(5) > div.react-datepicker__day.react-datepicker__day--023.react-datepicker__day--weekend"));
+            var selectedDate = calendarElement.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(1) > div.react-datepicker__day.react-datepicker__day--001.react-datepicker__day--keyboard-selected.react-datepicker__day--today"));
             calendarElement.Click();
 
             var nationalityElement = driver.FindElement(By.Id(nationalityInput));
