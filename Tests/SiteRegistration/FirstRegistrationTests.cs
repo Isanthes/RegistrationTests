@@ -10,24 +10,18 @@ using System.Text;
 
 namespace RegistrationTests.Tests
 {
-    class FirstRegistrationTests
+    class FirstRegistrationTests : BaseTest
     {
-        IWebDriver driver;
+        
         string url = Utils.GetUrl();
-
-        [SetUp]
-        public void SetUp()
-        {
-            driver = new ChromeDriver();
-        }
-
+   
         [Test]
         public void RegistrationHappyFlow()
         {
             driver.Navigate().GoToUrl(url + "registration");
             RegistrationPage happyFlow = new RegistrationPage(driver);
             Assert.AreEqual("Registration", happyFlow.ChackPage());
-            Assert.AreEqual("Username", happyFlow.getLabel(happyFlow.getUsernameLabel()));
+            Assert.AreEqual("Username", happyFlow.getLabel(happyFlow.getUsernameLabel()));         
             Assert.AreEqual("Password", happyFlow.getLabel(happyFlow.getPasswordLabel()));
             Assert.AreEqual("Confirm password", happyFlow.getLabel(happyFlow.getConfirmPassLabel()));
             Assert.AreEqual("Title", happyFlow.getLabel(happyFlow.getTitleLabel()));
@@ -90,12 +84,6 @@ namespace RegistrationTests.Tests
             Assert.AreEqual("Minimum of 2 characters is required!", invalid.getError(invalid.getLastNameError()));
             Assert.AreEqual("Invalid email address!", invalid.getError(invalid.getEmailInvalid()));
 
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            driver.Quit();
         }
 
     }

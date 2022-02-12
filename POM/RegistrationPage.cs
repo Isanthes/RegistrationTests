@@ -7,7 +7,7 @@ using System.Text;
 
 namespace RegistrationTests.POM
 {
-    public class RegistrationPage
+    public class RegistrationPage : BasePage
     {
         const string registrationPageText = "text-muted"; //class
 
@@ -60,17 +60,15 @@ namespace RegistrationTests.POM
 
         const string submitButton = "#registration-form > div:nth-child(13) > div.text-left.col-lg > button"; //css
 
-        IWebDriver driver;
+        
 
-        public RegistrationPage(IWebDriver driver)
+        public RegistrationPage(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
         }
 
         public string ChackPage()
         {
-            var registrationPageElem = driver.FindElement(By.ClassName(registrationPageText));
-            return registrationPageElem.Text;
+             return driver.FindElement(By.ClassName(registrationPageText)).Text; 
         }
 
         public void FirstRegistration(string user, string pass, string confirmPass,string title, string firstName, string lastName, string email, string nationality)
@@ -160,7 +158,7 @@ namespace RegistrationTests.POM
         {
             var element = driver.FindElement(By.CssSelector(label));
             return element.Text;
-        }
+        }    
         public string getUsernameLabel()
         {
             return usernameLabel;
